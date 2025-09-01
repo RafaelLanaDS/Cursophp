@@ -16,8 +16,7 @@
         echo "o numero gerado foi $n";
         ?>
         <button onclick="javascript:document:location.reload()">De novo</button>
-        
-        
+    
     </main>
 </body>
 </html>
