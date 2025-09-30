@@ -17,12 +17,12 @@
         <h1>Anatomia de uma divisão</h1>
         <form action="<?php echo $_SERVER['PHP_SELF']?>" method="get">
             <label for="dividendo">dividendo</label>
-            <input type="number" name="dividendo" value="<?=$div?>" >
+            <input type="number" name="dividendo" value="<?=$div?>" > <!-- o valor do value recebe o valor atribuido no php ?? 0-->
             <label for="divisor">Divisor</label>
             <input type="number" name="divisor" value="<?=$divisor?>">
             <input type="submit" value="Analisar">
         </form>
-    </main>
+    </main> <!-- CORPO -->
     <section id="resultado">
         <h2>Estrutura da Divisão</h2>
         <?php 
