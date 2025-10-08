@@ -8,24 +8,35 @@
 </head>
 <body>
     <?php 
-        $produto = $_GET['preco']??0;
-        $proc = $_GET['porcento']??0;
+        $prec = $_GET['preco']??0;
+        $reaj = $_GET['porcentual']??0;
     ?>
     <main>
         <h2>Reajustador de Preços</h2>
         <form action="<?=$_SERVER['PHP_SELF']?>" method="get">
             <label for="preço">Preço do produto (R$)</label>
-            <input type="number" name="preco" id="preco" min="1" value="<?=$nasc?>">
-            <label for="porcentual">Qual valor percentual de Reajuste(0%)</label>
-            <input type="range" name="porcento" id="porcento" min="1" max="100">
+            <input type="number" name="preco" id="preco" min="0.10" step="0.01" value="<?=$prec?>">
+            <label for="porcentual">Qual valor percentual de Reajustes <strong> <span id="p">?</span>%</strong></label>
+
+            <input type="range" name="porcentual" id="porcentual" min="0" max="100" step="1" oninput="mudavalor()" value="<?=$reaj?>">
             <input type="submit" value="Reajustar">
         </form>
     </main>
+    <?php 
+        $aumento = $prec * $reaj / 100;
+        $novo = $prec + $aumento
+    ?>
     <section>
         <h2>Resultado do Reajuste</h2>
         <?php 
-            echo " O produto que custava R$ $produto com $proc, de aumento vai passar a custar a {atual} a partir de agora"
+            echo " O produto que custava R$ $prec com R$$reaj, de aumento vai passar a custar a R$$novo a partir de agora"
         ?>
     </section>
+    <script>
+        mudavalor()
+        function mudavalor(){
+            p.innerText = porcentual.value;
+        }
+    </script>
 </body>
 </html>
