@@ -13,4 +13,9 @@
     </h1>
     <p>Vamos tentar nos livrar da maldição</p>
 </body>
+<?php 
+$nome = "Rafael Lana";
+$idade = 23;
+echo "Meu nome é $nome e tenho" . "$idade anos";
+?>
 </html>
